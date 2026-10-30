@@ -1,4 +1,4 @@
-# invoicekit
+# invoicekit (broker smoke)
 
 Invoice totals, VAT and CSV export for small businesses.
 

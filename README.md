@@ -1,4 +1,4 @@
-# invoicekit
+# invoicekit (smoke test)
 
 Invoice totals, VAT and CSV export for small businesses.
 

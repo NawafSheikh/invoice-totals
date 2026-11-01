@@ -21,7 +21,8 @@ def line_net(line: dict) -> float:
 def compute_totals(invoice: dict) -> InvoiceTotals:
     net = round_money(sum(line_net(line) for line in invoice["lines"]))
     rate = invoice.get("vat_rate", 0.0)
-    vat = round_money(net * rate)
-    discount = round_money((net + vat) * invoice.get("discount_pct", 0.0))
-    gross = round_money(net + vat - discount)
+    discount = round_money(net * invoice.get("discount_pct", 0.0))
+    discounted_net = round_money(net - discount)
+    vat = round_money(discounted_net * rate)
+    gross = round_money(discounted_net + vat)
     return InvoiceTotals(net=net, discount=discount, vat=vat, gross=gross)
